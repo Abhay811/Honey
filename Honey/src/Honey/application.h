@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core.h"
+
 namespace Honey {
 	class HONEY_API Application_C
 	{

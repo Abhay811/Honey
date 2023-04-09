@@ -4,8 +4,23 @@
     <Filter Include="Honey">
       <UniqueIdentifier>{E8A3540D-54B8-7CBE-1D3A-201E890D79EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Honey\Events">
+      <UniqueIdentifier>{CCDA7D18-B83D-0DBD-61C3-45734D05D93F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Honey\Events\application_event.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\event.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\key_event.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\mouse_event.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Honey\application.h">
       <Filter>Honey</Filter>
     </ClInclude>
