@@ -17,6 +17,9 @@ project "Honey"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "honey_pch.h"
+	pchsource "Honey/src/honey_pch.cpp"
+	
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -64,7 +67,7 @@ project "Sandbox"
 	language "C++"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{

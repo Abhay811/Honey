@@ -34,6 +34,7 @@
       <Filter>Honey</Filter>
     </ClInclude>
     <ClInclude Include="src\honey.h" />
+    <ClInclude Include="src\honey_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Honey\log.cpp">
       <Filter>Honey</Filter>
     </ClCompile>
+    <ClCompile Include="src\honey_pch.cpp" />
   </ItemGroup>
 </Project>

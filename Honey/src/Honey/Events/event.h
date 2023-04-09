@@ -1,9 +1,8 @@
 #pragma once
 
-#include "../core.h"
+#include "honey_pch.h"
+#include "Honey/core.h"
 
-#include <string>
-#include <functional>
 
 namespace Honey {
 
