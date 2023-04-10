@@ -1,5 +1,6 @@
 #include "honey_pch.h"
 #include "windows_window.h"
+#include "Honey/log.h"
 
 namespace Honey {
 	
@@ -37,8 +38,8 @@ namespace Honey {
 		}
 
 		_window = glfwCreateWindow((int)props._width, (int)props._height, _data.title.c_str(), nullptr, nullptr);
-		glfwMakeContexCurrent(_window);
-		glfwSetWindowUserPointer(_window, _data);
+		glfwMakeContextCurrent(_window);
+		glfwSetWindowUserPointer(_window, &_data);
 		SetVSync(true);
 	}
 

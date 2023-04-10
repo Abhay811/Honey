@@ -7,6 +7,12 @@
     <Filter Include="Honey\Events">
       <UniqueIdentifier>{CCDA7D18-B83D-0DBD-61C3-45734D05D93F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\windows">
+      <UniqueIdentifier>{84931FBA-708C-3E0C-99BE-239185161E18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Honey\Events\application_event.h">
@@ -33,10 +39,14 @@
     <ClInclude Include="src\Honey\log.h">
       <Filter>Honey</Filter>
     </ClInclude>
+    <ClInclude Include="src\Honey\window.h">
+      <Filter>Honey</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\windows\windows_window.h">
+      <Filter>Platform\windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\honey.h" />
     <ClInclude Include="src\honey_pch.h" />
-    <ClInclude Include="src\Honey\window.h" />
-    <ClInclude Include="src\Platform\windows\windows_window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\application.cpp">
@@ -45,7 +55,9 @@
     <ClCompile Include="src\Honey\log.cpp">
       <Filter>Honey</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\windows\windows_windows.cpp">
+      <Filter>Platform\windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\honey_pch.cpp" />
-    <ClCompile Include="src\Platform\windows\windows_windows.cpp" />
   </ItemGroup>
 </Project>
