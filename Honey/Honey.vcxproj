@@ -158,7 +158,9 @@
     <ClInclude Include="src\Honey\entry_point.h" />
     <ClInclude Include="src\Honey\log.h" />
     <ClInclude Include="src\honey.h" />
+    <ClInclude Include="src\Honey\window.h" />
     <ClInclude Include="src\honey_pch.h" />
+    <ClInclude Include="src\Platform\windows\windows_window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\application.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="src\honey_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\windows\windows_windows.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

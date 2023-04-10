@@ -7,7 +7,7 @@
 namespace Honey {
 	Application_C::Application_C()
 	{
-
+		_window = std::unique_ptr<Window_C>(Window_C::Create());
 	}
 
 	Application_C::~Application_C()
@@ -17,8 +17,8 @@ namespace Honey {
 
 	void Application_C::Run()
 	{
-		WindowResizeEvent_C e(1280, 720);
-		HONEY_TRACE(e);
-		while (true);
+		while (_running) {
+			_window->OnUpdate();
+		}
 	}
 }
