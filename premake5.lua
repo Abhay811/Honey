@@ -63,14 +63,17 @@ project "Honey"
 
 	filter "configurations:Debug"
 		defines "HONEY_BUILD"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HONEY_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HONEY_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
