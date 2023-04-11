@@ -69,7 +69,7 @@ namespace Honey {
 		template<typename T>
 		bool Dispatch(EventFunction<T> func)
 		{
-			if (_event.GetEventType() == T::GetStatictype())
+			if (_event.GetEventType() == T::GetStaticType())
 			{
 				_event._handled = func(*(T*)&_event);
 				return true;
