@@ -5,6 +5,8 @@
 #include "Honey/Events/application_event.h"
 #include "Honey/Events/key_event.h"
 #include "Honey/Events/mouse_event.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 namespace Honey {
 	
@@ -46,6 +48,8 @@ namespace Honey {
 
 		_window = glfwCreateWindow((int)props._width, (int)props._height, _data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		HONEY_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(_window, &_data);
 		SetVSync(true);
 

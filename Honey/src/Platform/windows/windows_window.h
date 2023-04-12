@@ -2,7 +2,7 @@
 
 #include "Honey/window.h"
 
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 namespace Honey {
 	class WindowsWindow_C : public Window_C

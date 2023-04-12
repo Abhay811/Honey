@@ -11,9 +11,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Honey/vendor/GLFW/include"
+IncludeDir["Glad"] = "Honey/vendor/Glad/include"
 
 include "Honey/vendor/GLFW"
-
+include "Honey/vendor/Glad"
 project "Honey"
 	location "Honey"
 	kind "SharedLib"
@@ -35,12 +36,14 @@ project "Honey"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -52,7 +55,8 @@ project "Honey"
 		defines
 		{
 			"HONEY_PLATFORM_WINDOWS",
-			"HONEY_BUILD_DLL"
+			"HONEY_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 
 		}
 

@@ -3,7 +3,7 @@
 
 
 #include "Honey/log.h"
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Honey {
 
@@ -46,8 +46,6 @@ namespace Honey {
 	void Application_C::Run()
 	{
 		while (_running) {
-			glClearColor(1, 0, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer_C* layer : _layer_stack)
 				layer->OnUpdate();
