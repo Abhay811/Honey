@@ -47,6 +47,8 @@
     </ClInclude>
     <ClInclude Include="src\honey.h" />
     <ClInclude Include="src\honey_pch.h" />
+    <ClInclude Include="src\Honey\layer_stack.h" />
+    <ClInclude Include="src\Honey\layer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\application.cpp">
@@ -59,5 +61,7 @@
       <Filter>Platform\windows</Filter>
     </ClCompile>
     <ClCompile Include="src\honey_pch.cpp" />
+    <ClCompile Include="src\Honey\layer_stack.cpp" />
+    <ClCompile Include="src\Honey\layer.cpp" />
   </ItemGroup>
 </Project>

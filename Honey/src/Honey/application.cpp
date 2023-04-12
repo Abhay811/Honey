@@ -3,7 +3,7 @@
 
 
 #include "Honey/log.h"
-#include "Honey/Events/event.h"
+#include <GLFW/glfw3.h>
 
 namespace Honey {
 
@@ -20,15 +20,38 @@ namespace Honey {
 
 	}
 
+	void Application_C::PushLayer(Layer_C* layer)
+	{
+		_layer_stack.PushLayer(layer);
+	}
+
+	void Application_C::PushOverlay(Layer_C* layer)
+	{
+		_layer_stack.PushOverlay(layer);
+	}
+
 	void Application_C::OnEvent(Event_C& event)
 	{
 		EventDispatcher_C dispatcher(event);
 		dispatcher.Dispatch<WindowCloseEvent_C>(BIND_EVENT(OnWindowClose));
-		HONEY_CORE_TRACE("{0}", event);
+		// HONEY_CORE_TRACE("{0}", event);
+
+		for (auto it = _layer_stack.end(); it != _layer_stack.begin();)
+		{
+			(*--it)->OnEvent(event);
+			if (event._handled)
+				break;
+		}
 	}
 	void Application_C::Run()
 	{
 		while (_running) {
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer_C* layer : _layer_stack)
+				layer->OnUpdate();
+			 
 			_window->OnUpdate();
 		}
 	}

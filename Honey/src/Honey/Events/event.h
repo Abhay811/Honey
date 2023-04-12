@@ -54,7 +54,7 @@ namespace Honey {
 		{
 			return GetCategoryFlags() & category;
 		}
-	private:
+	//private:
 		bool _handled = false;
 	};
 
