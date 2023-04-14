@@ -23,6 +23,7 @@ public:
 	Sandbox_C()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Honey::ImGuiLayer_C());
 	}
 	~Sandbox_C()
 	{

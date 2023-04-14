@@ -9,8 +9,12 @@ namespace Honey {
 
 #define BIND_EVENT(x) std::bind(&Application_C::x, this, std::placeholders::_1)
 
+	Application_C* Application_C::_instance = nullptr;
+
 	Application_C::Application_C()
 	{
+		HONEY_CORE_ASSERT(!_instance, "Application is running");
+		_instance = this;
 		_window = std::unique_ptr<Window_C>(Window_C::Create());
 		_window->SetEventCallback(BIND_EVENT(OnEvent));
 	}
@@ -23,11 +27,13 @@ namespace Honey {
 	void Application_C::PushLayer(Layer_C* layer)
 	{
 		_layer_stack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application_C::PushOverlay(Layer_C* layer)
 	{
 		_layer_stack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application_C::OnEvent(Event_C& event)

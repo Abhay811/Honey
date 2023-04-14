@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>honey_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HONEY_PLATFORM_WINDOWS;HONEY_BUILD_DLL;GLFW_INCLUDE_NONE;HONEY_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -104,7 +104,7 @@
       <PrecompiledHeaderFile>honey_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HONEY_PLATFORM_WINDOWS;HONEY_BUILD_DLL;GLFW_INCLUDE_NONE;HONEY_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -132,7 +132,7 @@
       <PrecompiledHeaderFile>honey_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HONEY_PLATFORM_WINDOWS;HONEY_BUILD_DLL;GLFW_INCLUDE_NONE;HONEY_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -159,6 +159,7 @@
     <ClInclude Include="src\Honey\Events\event.h" />
     <ClInclude Include="src\Honey\Events\key_event.h" />
     <ClInclude Include="src\Honey\Events\mouse_event.h" />
+    <ClInclude Include="src\Honey\ImGui\imgui_layer.h" />
     <ClInclude Include="src\Honey\application.h" />
     <ClInclude Include="src\Honey\core.h" />
     <ClInclude Include="src\Honey\entry_point.h" />
@@ -166,15 +167,18 @@
     <ClInclude Include="src\Honey\layer_stack.h" />
     <ClInclude Include="src\Honey\log.h" />
     <ClInclude Include="src\Honey\window.h" />
+    <ClInclude Include="src\Platform\OpenGL\imgui_opengl_renderer.h" />
     <ClInclude Include="src\Platform\windows\windows_window.h" />
     <ClInclude Include="src\honey.h" />
     <ClInclude Include="src\honey_pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Honey\ImGui\imgui_layer.cpp" />
     <ClCompile Include="src\Honey\application.cpp" />
     <ClCompile Include="src\Honey\layer.cpp" />
     <ClCompile Include="src\Honey\layer_stack.cpp" />
     <ClCompile Include="src\Honey\log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\imgui_opengl_renderer.cpp" />
     <ClCompile Include="src\Platform\windows\windows_windows.cpp" />
     <ClCompile Include="src\honey_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -186,6 +190,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
