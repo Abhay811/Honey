@@ -19,3 +19,5 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define HONEY_BIND_EVENT_FUN(fn) std::bind(&fn, this, std::placeholders::_1)
