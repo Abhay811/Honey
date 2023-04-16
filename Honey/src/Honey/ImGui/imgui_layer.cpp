@@ -65,7 +65,7 @@ namespace Honey {
 		dispatcher.Dispatch<MouseMovedEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnMouseMovedEvent));
 		dispatcher.Dispatch<MouseScrolledEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnMouseScrolledEvent));
 		dispatcher.Dispatch<KeyPressEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnKeyPressedEvent));
-		//dispatcher.Dispatch<KeyTypedEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnKeyTypedEvent));
+		dispatcher.Dispatch<KeyTypedEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnKeyTypedEvent));
 		dispatcher.Dispatch<KeyReleasedEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnKeyReleasedEvent));
 		dispatcher.Dispatch<WindowResizeEvent_C>(HONEY_BIND_EVENT_FUN(ImGuiLayer_C::OnWindowResizedEvent));
 	}
@@ -102,15 +102,33 @@ namespace Honey {
 	}
 	bool ImGuiLayer_C::OnKeyPressedEvent(KeyPressEvent_C& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.GetKeyCode()] = true;
+
+		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
+		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
+		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
+		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
 
 		return false;
 	}
 	bool ImGuiLayer_C::OnKeyReleasedEvent(KeyReleasedEvent_C& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.GetKeyCode()] = false;
 
 		return false;
 	}
-	//bool OnKeyTypedEvent(KeyTypedEvent_C& event);
+	bool ImGuiLayer_C::OnKeyTypedEvent(KeyTypedEvent_C& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		int keycode = event.GetKeyCode();
+		if (keycode > 0 && keycode < 0x10000)
+			io.AddInputCharacter((unsigned short)keycode);
+
+		return false;
+	}
+
 	bool ImGuiLayer_C::OnWindowResizedEvent(WindowResizeEvent_C& event)
 	{
 		ImGuiIO& io = ImGui::GetIO();

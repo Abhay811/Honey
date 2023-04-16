@@ -55,4 +55,20 @@ namespace Honey {
 
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class HONEY_API KeyTypedEvent_C : public KeyEvent_C
+	{
+	public:
+		KeyTypedEvent_C(int keycode)
+			: KeyEvent_C(keycode)  {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypedEvent: " << _keycode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }

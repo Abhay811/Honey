@@ -24,7 +24,7 @@ namespace Honey {
 		bool OnMouseScrolledEvent(MouseScrolledEvent_C& event);
 		bool OnKeyPressedEvent(KeyPressEvent_C& event);
 		bool OnKeyReleasedEvent(KeyReleasedEvent_C& event);
-		//bool OnKeyTypedEvent(KeyTypedEvent_C& event);
+		bool OnKeyTypedEvent(KeyTypedEvent_C& event);
 		bool OnWindowResizedEvent(WindowResizeEvent_C& event);
 
 	private:
